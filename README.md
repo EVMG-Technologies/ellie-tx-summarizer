@@ -30,12 +30,19 @@ Legacy Solana block explorers (Solscan, Helius) are built for machines and devel
 
 This project is structured as a monolithic repository (monorepo) to cleanly separate the client-facing UI from the agentic backend logic.
 
+```mermaid
+flowchart TD
+    subgraph Architecture [eLLiE Monorepo Structure]
+        direction TB
+        Root[📦 ellie-tx-summarizer] --> Front[🖥️ /frontend]
+        Root --> Back[⚡ /backend]
+        Root --> Docs[📄 README.md]
 
-ellie-tx-summarizer/
-├── /frontend      # React/Vite web application (Premium UI/UX)
-├── /backend       # Node.js API, Solana RPC parsing, and LLM logic
-└── README.md      # Protocol documentation
-
+        Front --> FrontDesc["🎨 React/Vite Web App (Premium UI/UX)"]
+        Back --> BackDesc["🧠 Node.js API, Solana RPC, & Agentic LLM Logic"]
+        Docs --> DocsDesc["📚 Protocol Documentation"]
+    end
+```
 ---
 
 ## 🚀 Features

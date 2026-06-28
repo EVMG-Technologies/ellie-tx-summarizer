@@ -7,7 +7,7 @@ import { openaiService } from './services/openaiService';
 dotenv.config();
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 
 app.use(cors());
 app.use(express.json());
@@ -41,12 +41,7 @@ app.get('/health', (req, res) => {
 });
 
 if (process.env.NODE_ENV !== 'test') {
-  // We use Number(port) to satisfy TypeScript, and '0.0.0.0' to open it to Docker's network
   app.listen(Number(port), '0.0.0.0', () => {
     console.log(`Server running on port ${port}`);
   });
 }
-  });
-}
-
-export default app;

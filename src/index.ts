@@ -41,8 +41,11 @@ app.get('/health', (req, res) => {
 });
 
 if (process.env.NODE_ENV !== 'test') {
-  app.listen(port, () => {
+  // We use Number(port) to satisfy TypeScript, and '0.0.0.0' to open it to Docker's network
+  app.listen(Number(port), '0.0.0.0', () => {
     console.log(`Server running on port ${port}`);
+  });
+}
   });
 }
 

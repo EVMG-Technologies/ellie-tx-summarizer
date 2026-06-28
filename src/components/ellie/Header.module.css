@@ -23,12 +23,9 @@
 }
 
 .logo {
-  width: 55px;
-  height: 55px;
-  border-radius: 50%;
-  object-fit: cover;
-  background: #000;
-  box-shadow: 0 0 14px rgba(212, 175, 55, 0.35);
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
 }
 
 .brandText {

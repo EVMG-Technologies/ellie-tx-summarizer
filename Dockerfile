@@ -1,18 +1,19 @@
 FROM node:22-alpine
 
-# Create app directory
 WORKDIR /app
 
-# Install app dependencies
+# Install dependencies
 COPY package*.json ./
 RUN npm install
 
-# Bundle app source
+# Copy source code
 COPY . .
 
-# Expose the exact port Traefik expects
+# Compile TypeScript to JavaScript in the /dist folder
+RUN npx tsc
+
 ENV PORT=3001
 EXPOSE 3001
 
-# Start the server
-CMD [ "npm", "start" ]
+# Run the compiled JS natively without tsx wrapper
+CMD [ "node", "dist/index.js" ]

@@ -2,10 +2,10 @@
   "name": "app",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/index.js",
+  "main": "src/index.js",
   "scripts": {
-    "start": "node dist/index.js",
-    "build": "tsc",
+    "start": "npx tsx src/index.ts",
+    "build": "tsx",
     "dev": "ts-node src/index.ts",
     "test": "jest"
   },

@@ -18,8 +18,8 @@
 
 .medallion {
   position: relative;
-  width: 112px;
-  height: 112px;
+  width: 146px;
+  height: 146px;
   margin-bottom: 22px;
   display: flex;
   align-items: center;
@@ -27,8 +27,8 @@
 }
 
 .medallionImg {
-  width: 92px;
-  height: 92px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   object-fit: cover;
   filter: drop-shadow(0 0 18px rgba(212, 175, 55, 0.55));

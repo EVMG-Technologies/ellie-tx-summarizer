@@ -1,19 +1,17 @@
-FROM node:22-alpine
+FROM node:22-alpine AS builder
 
 WORKDIR /app
-
-# Install dependencies
 COPY package*.json ./
 RUN npm install
-
-# Copy source code
 COPY . .
+RUN npm run build
 
-# Compile TypeScript to JavaScript in the /dist folder
-RUN npx tsc
+FROM node:22-alpine
+WORKDIR /app
+COPY --from=builder /app/.output ./.output
+COPY --from=builder /app/package.json ./
 
-ENV PORT=3001
-EXPOSE 3001
+ENV PORT=3000
+EXPOSE 3000
 
-# Run the compiled JS natively without tsx wrapper
-CMD [ "node", "dist/index.js" ]
+CMD ["node", ".output/server/index.mjs"]

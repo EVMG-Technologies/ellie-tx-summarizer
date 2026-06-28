@@ -4,6 +4,7 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY . .
+ENV NITRO_PRESET=node-server
 RUN npm run build
 
 FROM node:22-alpine

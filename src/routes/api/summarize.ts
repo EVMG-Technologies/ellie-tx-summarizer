@@ -9,12 +9,18 @@ export const APIRoute = createAPIFileRoute('/api/summarize')({
       const signature = body.signature
 
       if (!signature) {
-        return new Response(JSON.stringify({ error: 'Signature is required' }), { status: 400 })
+        return new Response(JSON.stringify({ error: 'Signature is required' }), {
+          status: 400,
+          headers: { 'Content-Type': 'application/json' }
+        })
       }
 
       const txData = await solanaService.getTransactionData(signature)
       if (!txData) {
-        return new Response(JSON.stringify({ error: 'Transaction not found' }), { status: 404 })
+        return new Response(JSON.stringify({ error: 'Transaction not found' }), {
+          status: 404,
+          headers: { 'Content-Type': 'application/json' }
+        })
       }
 
       const summary = await openaiService.summarizeTransaction(txData)
@@ -23,7 +29,10 @@ export const APIRoute = createAPIFileRoute('/api/summarize')({
       })
     } catch (error: any) {
       console.error('Error in /api/summarize:', error)
-      return new Response(JSON.stringify({ error: error.message || 'Internal server error' }), { status: 500 })
+      return new Response(JSON.stringify({ error: error.message || 'Internal server error' }), {
+        status: 500,
+        headers: { 'Content-Type': 'application/json' }
+      })
     }
   },
 })

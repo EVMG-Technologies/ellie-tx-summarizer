@@ -76,7 +76,13 @@ export function Summarizer() {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ signature: sig })
           });
-          const data = await res.json();
+          const text = await res.text();
+          let data;
+          try {
+            data = JSON.parse(text);
+          } catch (e) {
+            throw new Error('Received invalid response from server. Please ensure this is a valid Solana transaction hash.');
+          }
           if (!res.ok) throw new Error(data.error || 'Failed to fetch summary');
           
           setSummary(data.summary);

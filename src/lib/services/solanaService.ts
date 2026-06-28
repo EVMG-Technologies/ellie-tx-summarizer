@@ -13,8 +13,11 @@ export class SolanaService {
         maxSupportedTransactionVersion: 0,
       });
       return transaction;
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error fetching Solana transaction:', error);
+      if (error.message && (error.message.includes('Non-base58') || error.message.includes('Invalid signature'))) {
+        throw new Error('Invalid signature format. Are you sure this is a Solana transaction?');
+      }
       throw new Error('Failed to fetch transaction data');
     }
   }

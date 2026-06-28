@@ -1,12 +1,12 @@
 {
   "name": "app",
   "version": "1.0.0",
-  "description": "",
-  "main": "src/index.js",
+  "description": "eLLiE TX Summarizer Backend",
+  "main": "src/index.ts",
   "scripts": {
     "start": "npx tsx src/index.ts",
-    "build": "tsx",
-    "dev": "ts-node src/index.ts",
+    "dev": "npx tsx src/index.ts",
+    "build": "echo \"Skipping build step\"",
     "test": "jest"
   },
   "repository": {

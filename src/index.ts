@@ -42,6 +42,6 @@ app.get('/health', (req, res) => {
 
 if (process.env.NODE_ENV !== 'test') {
   app.listen(Number(port), '0.0.0.0', () => {
-    console.log(`Server running on port ${port}`);
+    console.log(`Server running on port ${port} (bound to 0.0.0.0)`);
   });
 }

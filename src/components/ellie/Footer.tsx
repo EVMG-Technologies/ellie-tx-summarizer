@@ -1,5 +1,4 @@
 import styles from "./Footer.module.css";
-import eslSeal from "../../assets/esl_license.png.asset.json";
 
 export function Footer() {
   return (
@@ -7,7 +6,7 @@ export function Footer() {
       <div className={styles.hairline} />
       <div className={styles.inner}>
         <img
-          src={eslSeal.url}
+          src="/esl_license.png"
           alt="Essence Source License seal"
           className={styles.seal}
         />

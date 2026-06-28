@@ -1,5 +1,4 @@
 import styles from "./Header.module.css";
-import logoAsset from "../../assets/ellie_logo.png.asset.json";
 
 export function Header() {
   return (
@@ -7,7 +6,7 @@ export function Header() {
       <div className={styles.inner}>
         <div className={styles.brand}>
           <img
-            src={logoAsset.url}
+            src="/ellie_logo.png"
             alt="eLLiE wolf emblem"
             className={styles.logo}
           />

@@ -1,6 +1,5 @@
 import { useEffect, useState, type FormEvent } from "react";
 import styles from "./Summarizer.module.css";
-import logoAsset from "../../assets/ellie_logo.png.asset.json";
 
 function truncate(sig: string) {
   if (sig.length <= 14) return sig;
@@ -111,7 +110,7 @@ export function Summarizer() {
           <span className={`${styles.ring} ${styles.ringOuter}`} />
           <span className={`${styles.ring} ${styles.ringInner}`} />
           <img
-            src={logoAsset.url}
+            src="/ellie_logo.png"
             alt="eLLiE wolf emblem"
             className={styles.medallionImg}
           />
